@@ -8,9 +8,9 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - adj-volume:/var/lib/mysql
+      - sgu-volume:/var/lib/mysql
     networks:
-      - adj-net
+      - sgu-net
     restart: unless-stopped
 
   frontend:
