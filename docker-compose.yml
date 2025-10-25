@@ -8,20 +8,20 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - sgu-volume:/var/lib/mysql
+      - adj-volume:/var/lib/mysql
     networks:
-      - sgu-net
+      - adj-net
     restart: unless-stopped
 
-  client:
-    image: sgu-client:latest
-    build:
+  frontend:
+    image: client:latest
+    build: 
       context: ./client
       args:
-        API_HOST: server
-        API_PORT: 8080
-        API_BASE: /usuarios
-    container_name: sgu-client
+        API_HOST: localhost
+        API_PORT: 8081
+        API_BASE: /sgu-api
+    container_name: sgu-frontend
     ports:
       - "3000:80"
     networks:
@@ -29,24 +29,24 @@ services:
     depends_on:
       - database
 
-  server:
-    image: sgu-server:latest
-    build:
+  backend:
+    image: server:latest
+    build: 
       context: ./server
     environment:
       SERVER_PORT: 8080
       DB_HOST: database
       DB_PORT: 3306
-      DB_NAME: sgu_db
+      DB_NAME: sgu-db
       DB_USER: root
       DB_PASS: root
-    container_name: sgu-server
+    container_name: sgu-backend
     ports:
       - "8081:8080"
     networks:
       - sgu-net
     depends_on:
-      - client
+      - frontend
 
 volumes:
   sgu-volume:

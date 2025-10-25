@@ -1,4 +1,4 @@
-package adj.demo.server.utils;
+package sgu.demo.server.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

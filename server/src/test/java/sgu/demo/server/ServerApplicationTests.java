@@ -1,4 +1,4 @@
-package adj.demo.server;
+package sgu.demo.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

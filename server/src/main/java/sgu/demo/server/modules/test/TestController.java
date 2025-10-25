@@ -1,4 +1,4 @@
-package adj.demo.server.modules.test;
+package sgu.demo.server.modules.test;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,11 @@ public class TestController {
     @GetMapping("")
     public ResponseEntity<?> getResponse() {
         HashMap<String, Object> response = new HashMap<>();
-        response.put("message", "API funcionando");
+        response.put("message", "API funcionando sgu");
         response.put("data", "OK");
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
 }

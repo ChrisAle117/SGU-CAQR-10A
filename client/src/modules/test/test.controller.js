@@ -1,7 +1,7 @@
 const TestController = {};
 const ENV = import.meta.env;
 
-//http://localhost:8081/adj-api
+//http://localhost:8081/sgu-api
 const API_URL = `http://${ENV.VITE_API_HOST}:${ENV.VITE_API_PORT}${ENV.VITE_API_BASE}`;
 
 TestController.callToAPI = async () => {
