@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TestController from './modules/test/test.controller'
+import UsersComponent from './modules/users/UsersComponent'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <hr />
         <button onClick={() => TestController.callToAPI()} className='btn btn-success'>Llamar a la API</button>
       </div>
+      <UsersComponent />
     </>
   )
 }
