@@ -4,14 +4,11 @@ pipeline {
     agent any
 
     stages {
-        // [MODIFICACIÓN CLAVE: ORDEN Y LIMPIEZA DE VOLUMENES]
-        // 1. Limpia todos los recursos (contenedores, volúmenes anónimos) del proyecto actual,
-        //    incluso si se ejecutó con un nombre anterior como 'deployment'.
-        stage('Limpiando Recursos del Proyecto...') {
+      stage('Limpiando Recursos del Proyecto...') {
             steps {
                 bat '''
                     // down -v --remove-orphans para limpiar recursos del proyecto actual y previos.
-                    docker compose -p SGU-CAQR-10A down -v --remove-orphans || exit /b 0
+                    docker compose -p sgu-caqr-10a down -v --remove-orphans || exit /b 0
                     
                     // Si tienes volúmenes con nombres fijos (ej: sgu-volume), elimínalos aquí
                     // ya que no se borran con 'down -v'. Cambia 'sgu-volume' por el nombre exacto si es diferente.
@@ -39,7 +36,7 @@ pipeline {
         stage('Eliminando imágenes anteriores...') {
             steps {
                 bat '''
-                    for /f "tokens=*" %%i in ('docker images --filter "label=com.docker.compose.project=SGU-CAQR-10A" -q') do (
+                    for /f "tokens=*" %%i in ('docker images --filter "label=com.docker.compose.project=sgu-caqr-10a" -q') do (
                         docker rmi -f %%i
                     )
                     if errorlevel 1 (
@@ -63,7 +60,7 @@ pipeline {
         stage('Construyendo y Desplegando Servicios...') {
             steps {
                 bat '''
-                    docker compose -p SGU-CAQR-10A up --build -d
+                    docker compose -p sgu-caqr-10a up --build -d
                 '''
             }
         }
