@@ -1,4 +1,4 @@
-package utez.edu.mx.server.utils;
+package utez.edu.server.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class DBConnection {
     public DataSource getDBConnection() {
         DriverManagerDataSource source = new DriverManagerDataSource();
         source.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        source.setUrl("jdbc:mysql://" + host + ":" + port + "/" + name + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
+        source.setUrl("jdbc:mysql://" + host + ":" + port + "/" + name);
         source.setUsername(user);
         source.setPassword(pass);
         return source;

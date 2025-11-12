@@ -1,4 +1,4 @@
-package utez.edu.mx.server;
+package utez.edu.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package utez.edu.mx.server;
+package utez.edu.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

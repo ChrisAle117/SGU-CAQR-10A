@@ -1,0 +1,72 @@
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+}
+
+.App-header {
+  background: var(--bg-primary);
+  padding: 2rem 0 1.5rem 0;
+  color: var(--text-primary);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-family);
+}
+
+.App-header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-family);
+}
+
+main {
+  flex: 1;
+  padding: 2rem 0;
+  animation: fadeIn 0.6s ease-out;
+  background: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1.2rem 0;
+  }
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .App-header .subtitle {
+    font-size: 1rem;
+  }
+  
+  main {
+    padding: 1rem 0;
+  }
+}
